@@ -1,0 +1,27 @@
+Microsoft (R) Macro Assembler Version 6.11		    02/26/22 11:27:33
+test.asm						     Page 1 - 1
+
+
+				assume cs:abc
+ 0000				abc segment
+ 0000  B8 0002			  mov ax,2
+ 0003  03 C0			  add ax,ax
+ 0005  03 C0			  add ax,ax
+ 0007  B8 4C00			  mov ax,4c00H
+ 000A  CD 21			  int 21H
+ 000C				abc ends
+				end
+Microsoft (R) Macro Assembler Version 6.11		    02/26/22 11:27:33
+test.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+abc  . . . . . . . . . . . . . .	16 Bit	 000C	  Para	  Private 
+
+	   0 Warnings
+	   0 Errors
