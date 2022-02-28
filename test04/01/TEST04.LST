@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:03:13
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:49:52
 test04.asm						     Page 1 - 1
 
 
@@ -18,7 +18,7 @@ test04.asm						     Page 1 - 1
  001A  CD 21			  int 21h
  001C				code ends
 				end
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:03:13
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:49:52
 test04.asm						     Symbols 2 - 1
 
 

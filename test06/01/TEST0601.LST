@@ -1,0 +1,40 @@
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:54:01
+test0601.asm						     Page 1 - 1
+
+
+				assume cs:code
+ 0000				code segment
+ 0000  0123 0456 0789		 dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h
+       0ABC 0DEF 0FED
+       0CBA 0987
+ 0010  BB 0000			 mov bx,0
+ 0013  B8 0000			 mov ax,0
+ 0016  B9 0008			 mov cx,8
+ 0019  2E: 03 07		s:add ax,cs:[bx]
+ 001C  83 C3 02			  add bx,2
+ 001F  E2 F8			  loop s
+ 0021  B8 4C00			  mov ax,4c00h
+ 0024  CD 21			  int 21h
+ 0026				code ends
+				end
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:54:01
+test0601.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 0026	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+s  . . . . . . . . . . . . . . .	L Near	 0019	  code	
+
+	   0 Warnings
+	   0 Errors
