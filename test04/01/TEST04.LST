@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 12:00:11
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 13:46:02
 test04.asm						     Page 1 - 1
 
 
@@ -7,16 +7,16 @@ test04.asm						     Page 1 - 1
  0000  B8 0020			  mov ax,0020H
  0003  8E D8			  mov ds,ax
  0005  B9 0040			  mov cx,64
- 0008  BB 0000			  mov bx,0
- 000B  89 1F			s: mov ds:[bx],bx
- 000D  43			   inc bx
- 000E  E2 FB			   loop s
+ 0008  B3 00			  mov bl,0
+ 000A  88 1F			s: mov ds:[bx],bl
+ 000C  FE C3			   inc bl
+ 000E  E2 FA			   loop s
  0010  B8 4C00			   mov ax,4c00h
  0013  CD 21			   int 21h
  0015				code ends
 				end
 				  
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 12:00:11
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 13:46:02
 test04.asm						     Symbols 2 - 1
 
 
@@ -33,7 +33,7 @@ Symbols:
 
                 N a m e                 Type     Value    Attr
 
-s  . . . . . . . . . . . . . . .	L Near	 000B	  code	
+s  . . . . . . . . . . . . . . .	L Near	 000A	  code	
 
 	   0 Warnings
 	   0 Errors
