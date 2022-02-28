@@ -1,22 +1,24 @@
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 13:46:02
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:03:13
 test04.asm						     Page 1 - 1
 
 
 				assume cs:code
  0000				code segment
- 0000  B8 0020			  mov ax,0020H
- 0003  8E D8			  mov ds,ax
- 0005  B9 0040			  mov cx,64
- 0008  B3 00			  mov bl,0
- 000A  88 1F			s: mov ds:[bx],bl
- 000C  FE C3			   inc bl
- 000E  E2 FA			   loop s
- 0010  B8 4C00			   mov ax,4c00h
- 0013  CD 21			   int 21h
- 0015				code ends
+ 0000  8C C8			  mov ax,cs
+ 0002  8E D8			  mov ds,ax
+ 0004  B8 0020			  mov ax,0020H
+ 0007  8E C0			  mov es,ax
+ 0009  BB 0000			  mov bx,0
+ 000C  83 E9 05			  sub cx,5
+ 000F  8A 07			s:mov al,[bx]
+ 0011  26: 88 07		  mov es:[bx],al
+ 0014  43			  inc bx
+ 0015  E2 F8			  loop s
+ 0017  B8 4C00			  mov ax,4c00h
+ 001A  CD 21			  int 21h
+ 001C				code ends
 				end
-				  
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 13:46:02
+Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:03:13
 test04.asm						     Symbols 2 - 1
 
 
@@ -26,14 +28,14 @@ Segments and Groups:
 
                 N a m e                 Size     Length   Align   Combine Class
 
-code . . . . . . . . . . . . . .	16 Bit	 0015	  Para	  Private 
+code . . . . . . . . . . . . . .	16 Bit	 001C	  Para	  Private 
 
 
 Symbols:
 
                 N a m e                 Type     Value    Attr
 
-s  . . . . . . . . . . . . . . .	L Near	 000A	  code	
+s  . . . . . . . . . . . . . . .	L Near	 000F	  code	
 
 	   0 Warnings
 	   0 Errors
