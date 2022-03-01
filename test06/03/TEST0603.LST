@@ -1,0 +1,59 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/01/22 17:15:12
+test0603.asm						     Page 1 - 1
+
+
+				assume cs:codesg
+ 0000				codesg segment
+ 0000  0123 0456 0789		  dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h
+       0ABC 0DEF 0FED
+       0CBA 0987
+ 0010  0000 0000 0000		  dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+       0000 0000 0000
+       0000 0000 0000
+       0000 0000 0000
+       0000 0000 0000
+       0000
+				  
+ 0030  8C C8			  start: mov ax,cs
+ 0032  8E D0			         mov ss,ax
+				         
+ 0034  BC 0030			         mov sp,30h
+ 0037  BB 0000			         mov bx,0
+ 003A  B9 0008			         mov cx,8
+ 003D  2E: FF 37		      s: push cs:[bx]
+ 0040  83 C3 02			         add bx,2
+ 0043  E2 F8			         loop s
+				         
+ 0045  BB 0000			         mov bx,0
+ 0048  B9 0008			         mov cx,8
+ 004B  2E: 8F 07		     s0: pop cs:[bx]
+ 004E  83 C3 02			         add bx,2
+ 0051  E2 F8			         loop s0
+				         
+ 0053  B8 4C00			         mov ax,4c00h
+ 0056  CD 21			         int 21h
+ 0058				codesg ends
+				end start
+Microsoft (R) Macro Assembler Version 6.11		    03/01/22 17:15:12
+test0603.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+codesg . . . . . . . . . . . . .	16 Bit	 0058	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+s0 . . . . . . . . . . . . . . .	L Near	 004B	  codesg	
+start  . . . . . . . . . . . . .	L Near	 0030	  codesg	
+s  . . . . . . . . . . . . . . .	L Near	 003D	  codesg	
+
+	   0 Warnings
+	   0 Errors
