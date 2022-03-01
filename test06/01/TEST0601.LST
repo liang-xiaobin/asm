@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:54:01
+Microsoft (R) Macro Assembler Version 6.11		    03/01/22 16:35:01
 test0601.asm						     Page 1 - 1
 
 
@@ -17,7 +17,7 @@ test0601.asm						     Page 1 - 1
  0024  CD 21			  int 21h
  0026				code ends
 				end
-Microsoft (R) Macro Assembler Version 6.11		    02/28/22 14:54:01
+Microsoft (R) Macro Assembler Version 6.11		    03/01/22 16:35:01
 test0601.asm						     Symbols 2 - 1
 
 
