@@ -1,0 +1,41 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/02/22 16:36:14
+test0901.asm						     Page 1 - 1
+
+
+				assume cs:code
+
+ 0000				data segment
+ 0000  0003 [			 db 3 dup(0)
+        00
+       ]
+ 0003				data ends
+
+ 0000				code segment
+ 0000  B8 ---- R		 start:mov ax,data
+ 0003  8E D8			       mov ds,ax
+ 0005  BB 0000			       mov bx,0
+ 0008  FF 67 01			       jmp word ptr [bx+1]
+ 000B				code ends
+				end start
+Microsoft (R) Macro Assembler Version 6.11		    03/02/22 16:36:14
+test0901.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 000B	  Para	  Private 
+data . . . . . . . . . . . . . .	16 Bit	 0003	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+start  . . . . . . . . . . . . .	L Near	 0000	  code	
+
+	   0 Warnings
+	   0 Errors
