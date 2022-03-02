@@ -1,0 +1,39 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/02/22 14:49:46
+test0801.asm						     Page 1 - 1
+
+
+				assume cs:codesg,ds:datasg
+
+ 0000				datasg segment
+ 0000				datasg ends
+
+ 0000				codesg segment
+ 0000  BA 0001			  start: mov dx,1
+ 0003  B8 86A1			         mov ax,86A1H
+ 0006  BB 0064			         mov bx,100
+ 0009  F7 F3			         div bx
+ 000B				codesg ends
+
+				end start
+Microsoft (R) Macro Assembler Version 6.11		    03/02/22 14:49:46
+test0801.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+codesg . . . . . . . . . . . . .	16 Bit	 000B	  Para	  Private 
+datasg . . . . . . . . . . . . .	16 Bit	 0000	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+start  . . . . . . . . . . . . .	L Near	 0000	  codesg	
+
+	   0 Warnings
+	   0 Errors
