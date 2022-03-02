@@ -1,0 +1,51 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/02/22 11:12:11
+test0703.asm						     Page 1 - 1
+
+
+				assume cs:codesg,ds:datasg
+
+ 0000				datasg segment
+ 0000  42 61 53 69 43		  db 'BaSiC'
+ 0005  4D 69 6E 49 58		  db 'MinIX'
+ 000A				datasg ends
+
+ 0000				codesg segment
+ 0000				  start:
+ 0000  B8 ---- R		  	mov ax,datasg
+ 0003  8E D8			  	mov ds,ax
+ 0005  BB 0000			  	mov bx,0
+ 0008  B9 0005			  	mov cx,5
+ 000B  8A 07			  s: mov al,[bx]
+ 000D  24 DF			     and al,11011111b
+ 000F  88 07			     mov [bx],al
+ 0011  8A 47 05			     mov al,[bx+5]
+ 0014  0C 20			     or  al,00100000b
+ 0016  88 47 05			     mov [bx+5],al
+ 0019  43			     inc bx
+ 001A  E2 EF			     loop s
+ 001C				codesg ends
+
+				end start
+Microsoft (R) Macro Assembler Version 6.11		    03/02/22 11:12:11
+test0703.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+codesg . . . . . . . . . . . . .	16 Bit	 001C	  Para	  Private 
+datasg . . . . . . . . . . . . .	16 Bit	 000A	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+start  . . . . . . . . . . . . .	L Near	 0000	  codesg	
+s  . . . . . . . . . . . . . . .	L Near	 000B	  codesg	
+
+	   0 Warnings
+	   0 Errors
