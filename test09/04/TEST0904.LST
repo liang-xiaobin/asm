@@ -1,0 +1,92 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/03/22 17:42:13
+test0904.asm						     Page 1 - 1
+
+
+				assume cs:code,ds:data,ss:stack
+
+ 0000				data segment
+ 0000  77 65 6C 63 6F 6D	 db 'welcome to masm!'
+       65 20 74 6F 20 6D
+       61 73 6D 21
+ 0010  02 24 71			 db 02h, 24h, 71h 
+ 0013				data ends
+
+ 0000				stack segment
+ 0000  0008 [			 dw 8 dup(0)
+        0000
+       ]
+ 0010				stack ends
+
+ 0000				code segment
+ 0000  B8 ---- R		start: mov ax, data
+ 0003  8E D8			  mov ds, ax
+ 0005  B8 ---- R		  mov ax, stack
+ 0008  8E D0			  mov ss, ax
+ 000A  BC 0016			  mov sp, 16h
+ 000D  BB 0000			  mov bx,0
+ 0010  B8 B872			  mov ax, 0b872h
+				  
+ 0013  B9 0003			  mov cx, 3
+ 0016  51			 s3: push cx 
+ 0017  50			  push ax ;目的地址的段地址
+ 0018  53			  push bx ;字符属性在数据段中的偏移地址
+				  
+ 0019  8E C0			  mov es, ax
+				  
+ 001B  BE 0000			  mov si, 0  ;源字符串
+ 001E  BF 0000			  mov di, 0  ;目标
+				  
+ 0021  B9 0010			  mov cx, 10h
+ 0024  8A 04			 s1: mov al, ds:[si] ;次循环把 字符串从 源地址复制到 目的地址  
+ 0026  26: 88 05		  mov es:[di], al ;因为 每个字符占两个字节 第一个字节是 ASCII 第二个字节是该字符属性 [此时每个字符属性所占的字节预留出来]
+ 0029  46			  inc si
+ 002A  83 C7 02			  add di, 2  
+ 002D  E2 F5			  loop s1
+				  
+ 002F  BF 0001			  mov di, 1
+ 0032  5B			  pop bx
+ 0033  8A 47 10			  mov al, ds:10h[bx]
+ 0036  43			  inc bx
+				  
+ 0037  B9 0010			  mov cx, 10h
+ 003A  26: 88 05		 s2: mov es:[di], al  ;此循环填充每个字符的属性
+ 003D  83 C7 02			  add di, 2
+ 0040  E2 F8			  loop s2
+				  
+ 0042  58			  pop ax
+ 0043  83 C0 0A			  add ax, 0ah ;目的地址的段地址
+				  
+ 0046  59			  pop cx
+ 0047  E2 CD			  loop s3
+				  
+ 0049  B8 4C00			  mov ax, 4c00h
+ 004C  CD 21			  int 21h  
+ 004E				code ends
+
+				end start
+Microsoft (R) Macro Assembler Version 6.11		    03/03/22 17:42:13
+test0904.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 004E	  Para	  Private 
+data . . . . . . . . . . . . . .	16 Bit	 0013	  Para	  Private 
+stack  . . . . . . . . . . . . .	16 Bit	 0010	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+s1 . . . . . . . . . . . . . . .	L Near	 0024	  code	
+s2 . . . . . . . . . . . . . . .	L Near	 003A	  code	
+s3 . . . . . . . . . . . . . . .	L Near	 0016	  code	
+start  . . . . . . . . . . . . .	L Near	 0000	  code	
+
+	   0 Warnings
+	   0 Errors
